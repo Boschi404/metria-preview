@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" role="img" aria-label="Metria">
+  <title>Metria</title>
+  <g fill="none" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M10.5 12.75 V22.5 H21.5 V12.75" stroke="#F3ECDD" stroke-width="1.35"/>
+    <path d="M8.9 23.2 Q9.65 22.4 9.58 21.5 L11.42 21.5 Q11.35 22.4 12.1 23.2 Z" fill="#F3ECDD"/>
+    <path d="M23.1 23.2 Q22.35 22.4 22.42 21.5 L20.58 21.5 Q20.65 22.4 19.9 23.2 Z" fill="#F3ECDD"/>
+    <path d="M5.67 15.5 Q11 12.1 16 6.89 Q21 12.1 26.33 15.5 L23.67 15.5 Q19.57 11.95 16 9.11 Q12.43 11.95 8.33 15.5 Z" fill="#C1694F"/>
+    <path d="M16 15.9 Q16.44 17.16 17.7 17.6 Q16.44 18.04 16 19.3 Q15.56 18.04 14.3 17.6 Q15.56 17.16 16 15.9 Z" fill="#C1694F"/>
+  </g>
+</svg>

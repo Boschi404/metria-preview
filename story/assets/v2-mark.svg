@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" role="img" aria-label="Metria">
+  <!-- Marchio METRIA v2 "M soft" — fondo scuro. Geometria ufficiale (A03.2): M a due falde, tratti 4.2 arrotondati, gamba sinistra terracotta. Non modificare. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="#F3ECDD" stroke-width="4.2" d="M9 22 V12.5 L16 18.5 L23 12.5 V22"/>
+    <path stroke="#C1694F" stroke-width="4.2" d="M9 22 V12.5"/>
+  </g>
+</svg>

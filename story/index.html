@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Metria — Story · l'evoluzione di sistema e marchio</title>
+<meta name="description" content="Come sono cresciuti il design system e il marchio Metria: due linee parallele, dal primo segno di riconoscimento alla casetta S3." />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0B0D0E" />
+<link rel="icon" href="assets/metria-favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0B0D0E; --ink:#F3ECDD; --primary:#1B2A4A; --accent:#C1694F; --secondary:#3F6B5D;
+    --card:#101314; --border:rgba(243,236,221,.10); --muted:#878a84; --soft:#c9c6bf; --warm:#F3ECDD;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --mono:'DM Mono',ui-monospace,monospace; --serif:'Instrument Serif',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:auto}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.62 Inter,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;font-size:10px}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(11,13,14,.82);border-bottom:1px solid var(--border)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
+  .brand{font-family:var(--serif);font-style:italic;font-size:27px;text-decoration:none;letter-spacing:-.01em;display:inline-flex;align-items:center;gap:2px}
+  .brand .st{color:var(--accent);font-style:normal;font-size:.62em;transform:translateY(-.28em)}
+  .nav-in .back{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+  .nav-in .back:hover{color:var(--ink)}
+  .back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.6}
+
+  /* hero */
+  header{padding:64px 0 34px}
+  .eyebrow{color:var(--muted);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.4vw,62px);line-height:1.03;letter-spacing:-.015em;margin:0 0 16px;max-width:20ch}
+  h1 em{font-style:italic;color:var(--accent)}
+  .lead{color:var(--soft);max-width:62ch;margin:0;font-size:16.5px}
+  .strip{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:38px;padding:20px 22px;border:1px solid var(--border);border-radius:16px;background:var(--card)}
+  .strip .step{display:flex;align-items:center;gap:12px}
+  .strip img{width:34px;height:34px;opacity:.95}
+  .strip .lbl{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+  .strip .arrow{color:rgba(243,236,221,.28);font-family:var(--mono);font-size:12px}
+
+  /* colonne */
+  main{padding:20px 0 40px}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:var(--card)}
+  .col{padding:30px 30px 40px;position:relative}
+  .col + .col{border-left:1px solid var(--border)}
+  .col-head{position:sticky;top:66px;z-index:5;background:linear-gradient(180deg,var(--card) 72%,rgba(16,19,20,0));padding:6px 0 14px;margin:0 0 6px}
+  .col-head .k{color:var(--accent);margin:0 0 6px}
+  .col-head h2{margin:0;font-size:23px;font-weight:600;letter-spacing:-.01em}
+  .col-head p{margin:6px 0 0;color:var(--muted);font-size:12.5px;max-width:44ch}
+  .col-body{position:relative;padding-left:26px}
+  .col-body::before{content:"";position:absolute;left:6px;top:8px;bottom:0;width:1px;background:linear-gradient(180deg,rgba(243,236,221,.22),rgba(243,236,221,.05))}
+  .card{position:relative;margin:0 0 26px;padding:18px 20px;border:1px solid var(--border);border-radius:14px;background:#0d1011}
+  .card::before{content:"";position:absolute;left:-26px;top:24px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid rgba(243,236,221,.4);transform:translateX(2px)}
+  .card.final{border-color:rgba(193,105,79,.4);background:linear-gradient(180deg,rgba(193,105,79,.07),rgba(193,105,79,.02))}
+  .card.final::before{background:var(--accent);border-color:var(--accent)}
+  .card .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+  .ver{font-family:var(--mono);font-size:10px;letter-spacing:.06em;padding:4px 8px;border-radius:999px;border:1px solid var(--border);color:var(--soft)}
+  .ver.now{color:#F0CFC2;border-color:rgba(193,105,79,.4);background:rgba(193,105,79,.12)}
+  .date{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em}
+  .card h3{margin:0 0 8px;font-size:16px;font-weight:600;letter-spacing:-.005em}
+  .card p{margin:0 0 10px;color:var(--soft);font-size:13.4px}
+  .card p:last-child{margin-bottom:0}
+  .card ul{margin:0;padding-left:17px;color:var(--soft);font-size:13.2px}
+  .card li{margin:0 0 5px}
+  .card li::marker{color:var(--accent)}
+  .note{font-size:12px;color:var(--muted);border-left:2px solid rgba(243,236,221,.16);padding-left:11px;margin:10px 0 0}
+
+  /* visual: swatch, tipografia, temi, numeri, chip, mini-UI */
+  .sw-row{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 12px}
+  .sw{flex:1 1 84px;min-width:84px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+  .sw i{display:block;height:44px}
+  .sw code{display:block;font-family:var(--mono);font-size:9.5px;color:var(--muted);padding:6px 8px}
+  .type-row{display:grid;gap:8px;margin:4px 0 0}
+  .type-row div{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px dashed rgba(243,236,221,.10);padding-bottom:6px}
+  .type-row span{font-family:var(--mono);font-size:9.5px;color:var(--muted)}
+  .t-inter{font-size:15px} .t-mono{font-family:var(--mono);font-size:13px} .t-serif{font-family:var(--serif);font-style:italic;font-size:19px}
+  .themes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 12px}
+  .theme{border:1px solid var(--border);border-radius:12px;padding:12px 13px;font-size:11.5px}
+  .theme .th-k{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:8px}
+  .theme strong{display:block;font-size:20px;font-family:var(--mono);font-weight:500;margin-bottom:4px}
+  .theme small{opacity:.72}
+  .notte{background:#0B0D0E;color:#F3ECDD}
+  .alba{background:#F6F2EA;color:#1A1B1A;border-color:rgba(0,0,0,.10)}
+  .alba .th-k{color:#6d6a63}
+  .stats{display:flex;gap:16px;flex-wrap:wrap;margin:6px 0 12px}
+  .stats div{font-family:var(--mono)}
+  .stats b{display:block;font-size:19px;font-weight:500;color:var(--ink)}
+  .stats span{font-size:9.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+  .focus-demo{display:inline-flex;align-items:center;gap:8px;font-size:12px;padding:9px 13px;border-radius:9px;border:1px solid var(--border);color:var(--soft);outline:2px solid var(--accent);outline-offset:2px}
+  .fmt{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+  .fmt code{font-family:var(--mono);font-size:11px;background:rgba(243,236,221,.05);border:1px solid var(--border);border-radius:7px;padding:5px 8px;color:var(--ink)}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin:4px 0 10px}
+  .chip{font-family:var(--mono);font-size:10px;letter-spacing:.04em;padding:5px 9px;border-radius:999px;border:1px solid var(--border);color:var(--soft)}
+  .chip.on{color:#F0CFC2;border-color:rgba(193,105,79,.4);background:rgba(193,105,79,.12)}
+  table.mini{width:100%;border-collapse:collapse;font-size:11.5px;margin:4px 0 10px}
+  table.mini th{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:left;padding:5px 6px;border-bottom:1px solid var(--border)}
+  table.mini td{padding:6px;border-bottom:1px solid rgba(243,236,221,.055);color:var(--soft)}
+  table.mini td.num{text-align:right;font-family:var(--mono)}
+  .mini-slider{position:relative;height:34px;border-radius:9px;border:1px solid var(--border);overflow:hidden;background:linear-gradient(90deg,rgba(243,236,221,.10) 0 50%,rgba(193,105,79,.16) 50% 100%);margin:4px 0 10px}
+  .mini-slider i{position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(243,236,221,.85)}
+  .mini-slider i::after{content:"";position:absolute;top:50%;left:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:#0B0D0E;border:1px solid rgba(243,236,221,.5)}
+  .banner-demo{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--border);border-radius:11px;padding:10px 12px;font-size:11px;color:var(--muted);background:#101314}
+  .banner-demo b{font-weight:600;color:var(--soft);font-size:11px}
+  .banner-demo .b{padding:6px 10px;border-radius:7px;background:var(--warm);color:#151612;font-size:10.5px;font-weight:600}
+
+  /* logo visuals */
+  .logo-stage{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;background:#0a0c0d;border:1px solid var(--border);border-radius:13px;padding:20px;margin:4px 0 12px}
+  .logo-stage.light{background:#F6F2EA}
+  .logo-stage img{display:block}
+  .img-32{width:34px;height:34px}
+  .img-72{width:72px;height:72px}
+  .img-120{width:120px;height:120px}
+  .img-wm{width:min(280px,100%);height:auto}
+  .logo-cap{font-family:var(--mono);font-size:9.5px;color:var(--muted);text-align:center;letter-spacing:.06em;margin:0}
+  .pair{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .pair > div{flex:1 1 130px}
+  .rejected{opacity:.62;filter:saturate(.7)}
+  .demo-link{display:inline-flex;align-items:center;gap:8px;margin-top:4px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1px solid var(--border);border-radius:9px;padding:9px 12px}
+  .demo-link:hover{border-color:rgba(193,105,79,.45);background:rgba(193,105,79,.08)}
+  .demo-link svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:1.6}
+
+  footer{border-top:1px solid var(--border);margin-top:26px;padding:26px 0 46px;color:var(--muted);font-size:12px}
+  footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--soft)}
+
+  @media (max-width:900px){
+    .cols{grid-template-columns:1fr}
+    .col + .col{border-left:0;border-top:1px solid var(--border)}
+    .col-head{position:static}
+    header{padding:44px 0 24px}
+    .themes{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .card,.strip{animation:rise .6s var(--ease) both}
+    .card:nth-child(2){animation-delay:.05s} .card:nth-child(3){animation-delay:.1s} .card:nth-child(4){animation-delay:.15s}
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="../index.html">Metria<span class="st">✦</span></a>
+    <a class="back" href="../index.html"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> Torna al sito</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow mono">Story / evoluzione</p>
+    <h1>Due linee cresciute insieme: <em>il sistema</em> e <em>il marchio</em>.</h1>
+    <p class="lead">A sinistra come si è costruito il design system — dai primi token dark-only alle due tematiche complete. A destra come si è arrivati alla casetta: segni scartati, tentativi, fino al marchio ufficiale. Tutto con le date reali del progetto.</p>
+    <div class="strip">
+      <div class="step"><img src="assets/v1-mark.svg" alt="Marchio v1" /><span class="lbl">v1 · quadrato e X</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><img src="assets/v2-mark.svg" alt="Marchio v2 M soft" /><span class="lbl">v2 · M soft</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><img src="assets/metria-mark.svg" alt="Marchio ufficiale Casetta S3" /><span class="lbl">v3 · casetta S3</span></div>
+      <span class="arrow">→</span>
+      <div class="step"><img src="assets/metria-wordmark.svg" alt="Wordmark Metria" class="img-32" style="width:auto;height:26px" /><span class="lbl">wordmark ✦</span></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="cols">
+
+      <!-- ============ SINISTRA: DESIGN SYSTEM ============ -->
+      <section class="col">
+        <div class="col-head">
+          <p class="k mono">Colonna 01</p>
+          <h2>Design system</h2>
+          <p>Token, componenti e regole: l'unico posto dove sono definiti i valori. Lande, piattaforma e materiali parlano la stessa lingua.</p>
+        </div>
+        <div class="col-body">
+
+          <article class="card">
+            <div class="top"><span class="ver">v0.1</span><span class="date">14 set 2026</span></div>
+            <h3>Nasce dallo stile della landing</h3>
+            <p>Estrazione del linguaggio visivo della landing in token riutilizzabili: palette, tipografia, spazi, raggi, moto. Un solo tema, scuro ed editoriale.</p>
+            <div class="sw-row">
+              <div class="sw"><i style="background:#0B0D0E"></i><code>#0B0D0E</code></div>
+              <div class="sw"><i style="background:#1B2A4A"></i><code>#1B2A4A</code></div>
+              <div class="sw"><i style="background:#C1694F"></i><code>#C1694F</code></div>
+              <div class="sw"><i style="background:#3F6B5D"></i><code>#3F6B5D</code></div>
+              <div class="sw"><i style="background:#F3ECDD"></i><code>#F3ECDD</code></div>
+            </div>
+            <div class="type-row">
+              <div><span class="t-inter">Inter — interfaccia e testi</span><span>UI</span></div>
+              <div><span class="t-mono">DM Mono — numeri e etichette</span><span>DATI</span></div>
+              <div><span class="t-serif">Instrument Serif — accenti</span><span>SERIF</span></div>
+            </div>
+            <p class="note">Limite dichiarato all'epoca: tema chiaro non previsto, la landing era dark-only. Diventa il primo punto della lista v2.</p>
+          </article>
+
+          <article class="card">
+            <div class="top"><span class="ver">v2.0</span><span class="date">15 set 2026</span></div>
+            <h3>Sistema completo, due tematiche</h3>
+            <p>Token completi su due temi: <strong>Metria Notte</strong> (default) e <strong>Metria Alba</strong>, con palette chiara propria — non un'inversione. Spec di oltre 30 componenti per la piattaforma, demo viva con switch di tema.</p>
+            <div class="themes">
+              <div class="theme notte"><div class="th-k">Notte / default</div><strong>€ 46–61K</strong><small>#0B0D0E · crema #F3ECDD</small></div>
+              <div class="theme alba"><div class="th-k">Alba / chiaro</div><strong>€ 46–61K</strong><small>#F6F2EA · inchiostro #1A1B1A</small></div>
+            </div>
+            <div class="stats">
+              <div><b>2</b><span>temi</span></div>
+              <div><b>91</b><span>token usati · 0 mancanti</span></div>
+              <div><b>30+</b><span>componenti spec'ati</span></div>
+              <div><b>240°</b><span>gauge score</span></div>
+            </div>
+            <p class="note">Verifiche di allora: 91 token usati nella demo tutti presenti, struttura HTML bilanciata 155/155. Score su 5 fasce con colori dedicati per tema, 8 serie grafiche.</p>
+          </article>
+
+          <article class="card">
+            <div class="top"><span class="ver">v2.1</span><span class="date">15 set 2026</span></div>
+            <h3>Accessibilità, dati, marchio finale</h3>
+            <p>Giro di rifinitura: ogni elemento interattivo ha il proprio anello di focus, i grigi sono consolidati su un unico valore leggibile, i numeri seguono il formato italiano, le icone sono vettoriali (mai emoji).</p>
+            <div class="focus-demo">Anello di focus <span class="mono" style="color:var(--accent)">2px</span></div>
+            <div class="fmt"><code>€ 46–61K</code><code>19,6%</code><code>su 86 comparabili</code><code>€ 1.460 / mese</code></div>
+            <div class="chips"><span class="chip">contrasto ≥ 4,6:1</span><span class="chip">tap target ≥ 44px</span><span class="chip">icone 14px</span><span class="chip">breakpoint &lt; 480px</span></div>
+            <p class="note">Stessa release: promozione del marchio v3 nel sistema, rollout su styleguide, landing e materiali pubblicitari.</p>
+          </article>
+
+          <article class="card final">
+            <div class="top"><span class="ver now">estensione</span><span class="date">15 set 2026</span></div>
+            <h3>Componenti nate nella landing</h3>
+            <p>Il sito completo ha aggiunto pezzi che il sistema non aveva: report navigabile, selettore di scenario, confronto prima/dopo, informativa cookie. Vivono nella landing e sono <strong>in attesa di consolidamento</strong> nei token e nella spec.</p>
+            <table class="mini">
+              <tr><th>Componente</th><th class="num">Stato</th></tr>
+              <tr><td>Report interattivo · 7 viste</td><td class="num">in uso</td></tr>
+              <tr><td>Chip scenario Fix&amp;Flip / Investimento</td><td class="num">in uso</td></tr>
+              <tr><td>Slider prima/dopo</td><td class="num">in uso</td></tr>
+              <tr><td>Banner cookie + pagine legali</td><td class="num">in uso</td></tr>
+            </table>
+            <div class="mini-slider"><i></i></div>
+            <div class="banner-demo"><span>Cookie tecnici e, con consenso, misurazione anonima.</span><span class="b"><b>Accetta</b></span></div>
+            <p class="note">Prossimo passo dichiarato: portarli in <code>tokens.css</code> e nella spec, così anche la piattaforma può usarli senza reinventarli.</p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ============ DESTRA: LOGO ============ -->
+      <section class="col">
+        <div class="col-head">
+          <p class="k mono">Colonna 02</p>
+          <h2>Logo</h2>
+          <p>Dal primo segno di riconoscimento alla casetta definitiva: cosa è stato provato, cosa è stato scartato e perché.</p>
+        </div>
+        <div class="col-body">
+
+          <article class="card">
+            <div class="top"><span class="ver">v1</span><span class="date">13 set 2026</span></div>
+            <h3>Quadrato e X</h3>
+            <p>Il primo marchio nasce dal favicon della landing: una cornice arrotondata con una X dentro, una barra in crema e una in terracotta. Funzionava a 16 pixel, ma non raccontava niente dell'immobile.</p>
+            <div class="logo-stage rejected"><img src="assets/v1-mark.svg" alt="Marchio v1: cornice quadrata con X" class="img-72" /></div>
+            <p class="logo-cap">cornice 23×23 centrata · X interna 9–23 · "/" crema · "\" terracotta</p>
+            <p class="note">Scartato: leggibile ma anonimo — nessun legame con case, valore o misura.</p>
+          </article>
+
+          <article class="card">
+            <div class="top"><span class="ver">v2</span><span class="date">15 set 2026</span></div>
+            <h3>M soft</h3>
+            <p>Secondo tentativo: una M a due falde con tratti arrotondati, la gamba sinistra in terracotta, e il wordmark serif "Metria." con il punto come firma. Più elegante, ma a piccole dimensioni la M si confondeva con un'unica forma.</p>
+            <div class="logo-stage rejected"><img src="assets/v2-mark.svg" alt="Marchio v2: M a due falde" class="img-72" /></div>
+            <p class="logo-cap">M a due falde · tratti 4,2 arrotondati · gamba sinistra terracotta</p>
+            <p class="note">Scartato: troppo marcata la lettera, poco distintiva come simbolo.</p>
+          </article>
+
+          <article class="card">
+            <div class="top"><span class="ver">v3 · tentativi</span><span class="date">15 set 2026</span></div>
+            <h3>La casetta, verso la forma giusta</h3>
+            <ul>
+              <li><strong>H1</strong> — prima casa: tetto a falde e gamba terracotta davanti, ma gli spigoli del tetto non chiudevano le pareti.</li>
+              <li><strong>N1</strong> — tetto intero terracotta e tratti netti, senza estremità tonde.</li>
+              <li><strong>Spessori</strong> — tre gradazioni provate (minima, sottile, piena): vince la <strong>sottile</strong>.</li>
+              <li><strong>Tetto</strong> — forma piena con taglio orizzontale: i due angoli esterni sulla stessa quota, zero gradi di inclinazione.</li>
+              <li><strong>Due case</strong> — la variante "M" fatta di due case affiancate: provata e messa da parte, troppo costruita.</li>
+            </ul>
+          </article>
+
+          <article class="card final">
+            <div class="top"><span class="ver now">v3 · ufficiale</span><span class="date">15 set 2026</span></div>
+            <h3>Casetta S3 + wordmark ✦</h3>
+            <p>La sintesi: tetto a stella allungata con falde concave, pareti crema con piedini serif, porta a stella a quattro punte, tratti netti e tetto che passa davanti. Nel wordmark la stella sostituisce il punto.</p>
+            <div class="logo-stage">
+              <img src="assets/metria-mark.svg" alt="Marchio ufficiale: casetta S3" class="img-120" />
+              <img src="assets/metria-mark-on-light.svg" alt="Casetta su fondo chiaro" class="img-120" style="background:#F6F2EA;border-radius:12px;padding:6px" />
+            </div>
+            <p class="logo-cap">Notte · Alba — la crema diventa inchiostro sui fondi chiari</p>
+            <div class="logo-stage light"><img src="assets/metria-wordmark.svg" alt="Wordmark Metria" class="img-wm" /></div>
+            <div class="pair">
+              <div><img src="assets/metria-lockup-horizontal.svg" alt="Lockup orizzontale" style="width:100%;height:auto" /></div>
+              <div><img src="assets/metria-lockup-vertical.svg" alt="Lockup verticale" style="width:70px;height:auto;display:block;margin:0 auto" /></div>
+            </div>
+            <div class="logo-stage" style="gap:26px">
+              <img src="assets/metria-app-icon.svg" alt="App icon" class="img-72" />
+              <img src="assets/metria-favicon.svg" alt="Favicon" class="img-32" />
+            </div>
+            <p class="logo-cap">9 file ufficiali + favicon · spazio di rispetto 25%</p>
+            <p class="note">Regole di costruzione fissate nel brand book v3.0: tetto sempre davanti, mai pulsante, mai punto al posto della stella, tratti butt/miter.</p>
+          </article>
+
+          <article class="card">
+            <div class="top"><span class="ver">animazione</span><span class="date">15 set 2026</span></div>
+            <h3>Il marchio si costruisce da solo</h3>
+            <p>Loading ufficiale, quattro secondi: i muri salgono come liquido, il tetto scende dall'alto, la stella si accende, ruota di 360°, la casa sfuma e "Metria" viene scritta a mano. Anima sempre, si interrompe con un clic o con ESC.</p>
+            <div class="logo-stage"><img src="assets/casetta-costruisci.svg" alt="Costruzione della casetta" class="img-120" /></div>
+            <a class="demo-link" href="loading.html"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg> Guarda l'animazione (4s)</a>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="row">
+      <span>Metria — story dell'identità. Date e valori presi dal progetto, non ricostruiti a memoria.</span>
+      <span><a href="../index.html">Sito</a> · <a href="../privacy.html">Privacy</a> · <a href="../cookie.html">Cookie</a> · <a href="../contatti.html">Contatti</a></span>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

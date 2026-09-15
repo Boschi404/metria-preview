@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Metria — Loading per la landing v5 (stella che ruota 360°)</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0B0D0E;--t1:#F5F2EA;--t2:#D9D5CC;--t3:#A6A8A3;--t4:#8E918B;--border:rgba(255,255,255,.09);--accent:#C1694F;--warm:#F3ECDD;--mono:'DM Mono',monospace}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--t2);font-family:Inter,system-ui,sans-serif;padding:44px 40px 80px}
+  h1{font-size:30px;letter-spacing:-.03em;color:var(--t1);margin:0}
+  h2{font-size:19px;color:var(--t1);margin:46px 0 0;letter-spacing:-.02em}
+  .lead{color:var(--t3);max-width:900px;font-size:15px;line-height:1.6}
+  .mono{font-family:var(--mono)}
+  .row{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;margin-top:20px}
+  .ld-stage{border:1px solid var(--border);border-radius:20px;background:#0B0D0E;display:grid;place-items:center;padding:10px 0}
+  .ld-stage svg{display:block}
+  .st{stroke:#F3ECDD}.tc{fill:#C1694F}.footfill{fill:#F3ECDD}
+  .serifw{font-family:'Instrument Serif',Georgia,serif;font-style:italic;fill:#F3ECDD}
+  .btn{font:600 12px/1 Inter,sans-serif;color:var(--t2);background:transparent;border:1px solid var(--border);border-radius:9px;padding:8px 12px;cursor:pointer}
+  .btn:hover{background:rgba(255,255,255,.04)}
+  .capt{font-family:var(--mono);font-size:10.5px;color:var(--t4);line-height:1.7}
+  .spec{border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-top:18px;max-width:900px}
+  .spec li{font-size:13px;color:var(--t3);line-height:1.9}
+  .spec b{color:var(--t1)}
+  .foot{margin-top:44px;border-top:1px solid var(--border);padding-top:18px;color:var(--t4);font-size:12.5px;max-width:940px;line-height:1.7}
+  /* ======== TIMELINE v5 — build veloce + stella che ruota 360° nel viaggio (loop 8s) ======== */
+  @keyframes ldLiq { 0%,8%{transform:translateY(0)} 38.5%{transform:translateY(-13px)} 93%{transform:translateY(-13px)} 97%{transform:translateY(0)} 100%{transform:translateY(0)} }
+  @keyframes ldRoof { 0%,23.4%{transform:translateY(-11px);opacity:0;animation-timing-function:cubic-bezier(.5,.06,.3,1)} 27%{opacity:1} 48.8%{transform:translateY(0);opacity:1} 93%{transform:translateY(0);opacity:1} 97%{opacity:0} 100%{transform:translateY(-11px);opacity:0} }
+  @keyframes ldHouseFade { 0%,93%{opacity:1} 97%{opacity:0} 100%{opacity:0} }
+  /* la stella: sboccia sulla porta, poi viaggia verso il nome facendo un GIRO COMPLETO di 360° su sé stessa */
+  @keyframes ldStar { 0%,51.2%{transform:translate(180px,85px) scale(1.4) rotate(0deg);opacity:0;animation-timing-function:cubic-bezier(.2,.9,.3,1)} 55%{opacity:1} 61%{transform:translate(180px,85px) scale(5.1) rotate(0deg);animation-timing-function:cubic-bezier(.4,.1,.45,1)} 65%{transform:translate(180px,85px) scale(3.9) rotate(0deg);animation-timing-function:cubic-bezier(.35,.1,.45,1)} 71%{transform:translate(180px,85px) scale(4.08) rotate(0deg);animation-timing-function:cubic-bezier(.3,1.35,.4,1)} 87.5%{transform:translate(257.5px,93.6px) scale(7.1) rotate(324deg);animation-timing-function:cubic-bezier(.3,1.4,.5,1)} 91.5%{transform:translate(254.6px,93px) scale(6.93) rotate(360deg)} 93%{opacity:1} 97%{transform:translate(254.6px,93px) scale(6.93) rotate(360deg);opacity:0} 100%{transform:translate(180px,85px) scale(1.4) rotate(0deg);opacity:0} }
+  @keyframes ldText { 0%,71%{transform:translate(-170px,0)} 87.5%{transform:translate(4px,0);animation-timing-function:cubic-bezier(.3,1.4,.5,1)} 91.5%{transform:translate(0,0)} 93%{opacity:1} 97%{opacity:0;transform:translate(0,0)} 100%{transform:translate(-170px,0);opacity:0} }
+  @keyframes ldNib { 0%,81.5%{transform:translate(99px,0)} 91.5%{transform:translate(262px,0)} 97%{transform:translate(262px,0)} 100%{transform:translate(99px,0)} }
+  .ld-liq{animation:ldLiq 4s cubic-bezier(.55,.03,.35,1) infinite}
+  .ld-roof{animation:ldRoof 4s cubic-bezier(.5,.06,.3,1) infinite}
+  .ld-house{animation:ldHouseFade 4s cubic-bezier(.45,0,.35,1) infinite}
+  .ld-star{animation:ldStar 4s cubic-bezier(.3,1.2,.4,1) infinite}
+  .ld-text{animation:ldText 4s cubic-bezier(.3,1.2,.4,1) infinite}
+  .ld-nib{animation:ldNib 4s cubic-bezier(.45,.08,.3,1) infinite}
+  .frozen .ld-liq,.frozen .ld-roof,.frozen .ld-house,.frozen .ld-star,.frozen .ld-text,.frozen .ld-nib{animation-play-state:paused!important}
+</style>
+</head>
+<body>
+
+<h1>Loading per la landing — v5</h1>
+<div style="border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-top:20px;font-size:13px;color:var(--t3)">
+  <b>v5:</b> nel viaggio dalla casa al posto nel nome, <b>la stella fa un giro completo di 360° su sé stessa</b> mentre si sposta (rotazione fluida che rallenta dolcemente in atterraggio). Tutto il resto invariato: muri liquido −30%, tetto −30% che parte a metà dei muri, scrittura a mano a metà scorrimento, lockup a ~5,6s.
+</div>
+
+<h2>1 · Dimensione piena</h2>
+<div class="row">
+  <div>
+    <div class="ld-stage" id="big" style="width:640px">
+      <svg width="600" viewBox="0 0 360 160" id="svgbig">
+        <defs>
+          <filter id="lb1" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="0.5"/></filter>
+          <mask id="lq1" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="-2" y="6" width="36" height="30">
+            <g filter="url(#lb1)"><path class="ld-liq" fill="#fff" d="M-4 23.2 Q0 22.5 4 23.1 Q8 23.7 12 22.9 Q16 22.3 20 23.1 Q24 23.9 28 23.0 Q32 22.2 36 23.0 L36 44 L-4 44 Z"/></g>
+          </mask>
+          <filter id="tt1" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="0.5"/></filter>
+          <mask id="tx1" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="96" y="48" width="152" height="62">
+            <g filter="url(#tt1)"><path class="ld-nib" fill="#fff" d="M0 -10 L-7 170 L-260 170 L-260 -10 Z"/></g>
+          </mask>
+        </defs>
+        <g class="ld-house">
+          <g transform="translate(141.6,42.8) scale(2.4)">
+            <g mask="url(#lq1)" fill="none" stroke-linecap="butt" stroke-linejoin="miter">
+              <path class="st" stroke-width="1.35" d="M10.5 12.75 V22.5 H21.5 V12.75"/>
+              <path class="footfill" d="M8.9 23.2 Q9.65 22.4 9.58 21.5 L11.42 21.5 Q11.35 22.4 12.1 23.2 Z"/>
+              <path class="footfill" d="M23.1 23.2 Q22.35 22.4 22.42 21.5 L20.58 21.5 Q20.65 22.4 19.9 23.2 Z"/>
+            </g>
+            <path class="tc ld-roof" d="M5.67 15.5 Q11 12.1 16 6.89 Q21 12.1 26.33 15.5 L23.67 15.5 Q19.57 11.95 16 9.11 Q12.43 11.95 8.33 15.5 Z"/>
+          </g>
+        </g>
+        <path class="tc ld-star" d="M0 -1 Q0.26 -0.26 1 0 Q0.26 0.26 0 1 Q-0.26 0.26 -1 0 Q-0.26 -0.26 0 -1 Z"/>
+        <g class="ld-text"><g mask="url(#tx1)"><text class="serifw" x="99.5" y="96" font-size="44" textLength="140.8" lengthAdjust="spacingAndGlyphs">Metria</text></g></g>
+      </svg>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button class="btn" onclick="replay('big')">↻ rigioca</button>
+      <button class="btn" onclick="toggleOnce(this)">◻ una volta sola (come in landing)</button>
+    </div>
+    <div class="capt" style="margin-top:8px">600px · loop 8s · build in 2,3s · stella con giro di 360° · lockup a 5,5s</div>
+  </div>
+</div>
+
+<h2>2 · A dimensione reale di loader</h2>
+<div class="row">
+  <div>
+    <div class="ld-stage" style="width:320px"><svg width="290" viewBox="0 0 360 160"><defs><filter id="lb2" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="0.5"/></filter><mask id="lq2" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="-2" y="6" width="36" height="30"><g filter="url(#lb2)"><path class="ld-liq" fill="#fff" d="M-4 23.2 Q0 22.5 4 23.1 Q8 23.7 12 22.9 Q16 22.3 20 23.1 Q24 23.9 28 23.0 Q32 22.2 36 23.0 L36 44 L-4 44 Z"/></g></mask><filter id="tt2" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="0.5"/></filter><mask id="tx2" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="96" y="48" width="152" height="62"><g filter="url(#tt2)"><path class="ld-nib" fill="#fff" d="M0 -10 L-7 170 L-260 170 L-260 -10 Z"/></g></mask></defs><g class="ld-house"><g transform="translate(141.6,42.8) scale(2.4)"><g mask="url(#lq2)" fill="none" stroke-linecap="butt" stroke-linejoin="miter"><path class="st" stroke-width="1.35" d="M10.5 12.75 V22.5 H21.5 V12.75"/><path class="footfill" d="M8.9 23.2 Q9.65 22.4 9.58 21.5 L11.42 21.5 Q11.35 22.4 12.1 23.2 Z"/><path class="footfill" d="M23.1 23.2 Q22.35 22.4 22.42 21.5 L20.58 21.5 Q20.65 22.4 19.9 23.2 Z"/></g><path class="tc ld-roof" d="M5.67 15.5 Q11 12.1 16 6.89 Q21 12.1 26.33 15.5 L23.67 15.5 Q19.57 11.95 16 9.11 Q12.43 11.95 8.33 15.5 Z"/></g></g><path class="tc ld-star" d="M0 -1 Q0.26 -0.26 1 0 Q0.26 0.26 0 1 Q-0.26 0.26 -1 0 Q-0.26 -0.26 0 -1 Z"/><g class="ld-text"><g mask="url(#tx2)"><text class="serifw" x="99.5" y="96" font-size="44" textLength="140.8" lengthAdjust="spacingAndGlyphs">Metria</text></g></g></svg></div>
+    <div class="capt" style="margin-top:8px">290px</div>
+  </div>
+  <div>
+    <div class="ld-stage" style="width:220px"><svg width="190" viewBox="0 0 360 160"><defs><filter id="lb3" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="0.5"/></filter><mask id="lq3" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="-2" y="6" width="36" height="30"><g filter="url(#lb3)"><path class="ld-liq" fill="#fff" d="M-4 23.2 Q0 22.5 4 23.1 Q8 23.7 12 22.9 Q16 22.3 20 23.1 Q24 23.9 28 23.0 Q32 22.2 36 23.0 L36 44 L-4 44 Z"/></g></mask><filter id="tt3" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="0.5"/></filter><mask id="tx3" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="96" y="48" width="152" height="62"><g filter="url(#tt3)"><path class="ld-nib" fill="#fff" d="M0 -10 L-7 170 L-260 170 L-260 -10 Z"/></g></mask></defs><g class="ld-house"><g transform="translate(141.6,42.8) scale(2.4)"><g mask="url(#lq3)" fill="none" stroke-linecap="butt" stroke-linejoin="miter"><path class="st" stroke-width="1.35" d="M10.5 12.75 V22.5 H21.5 V12.75"/><path class="footfill" d="M8.9 23.2 Q9.65 22.4 9.58 21.5 L11.42 21.5 Q11.35 22.4 12.1 23.2 Z"/><path class="footfill" d="M23.1 23.2 Q22.35 22.4 22.42 21.5 L20.58 21.5 Q20.65 22.4 19.9 23.2 Z"/></g><path class="tc ld-roof" d="M5.67 15.5 Q11 12.1 16 6.89 Q21 12.1 26.33 15.5 L23.67 15.5 Q19.57 11.95 16 9.11 Q12.43 11.95 8.33 15.5 Z"/></g></g><path class="tc ld-star" d="M0 -1 Q0.26 -0.26 1 0 Q0.26 0.26 0 1 Q-0.26 0.26 -1 0 Q-0.26 -0.26 0 -1 Z"/><g class="ld-text"><g mask="url(#tx3)"><text class="serifw" x="99.5" y="96" font-size="44" textLength="140.8" lengthAdjust="spacingAndGlyphs">Metria</text></g></g></svg></div>
+    <div class="capt" style="margin-top:8px">190px</div>
+  </div>
+</div>
+
+<h2>3 · Timeline (v5)</h2>
+<div class="spec">
+  <ul>
+    <li><b>0–0,4s</b> — bianco</li>
+    <li><b>0,4–1,9s</b> — <b>i muri emergono dal liquido</b> (30% più veloci)</li>
+    <li><b>1,2–2,3s</b> — il <b>tetto</b> inizia a metà dei muri e <b>scende 30% più veloce</b>: si posa fluido, senza rimbalzo</li>
+    <li><b>2,4–3,6s</b> — <b>la stella sboccia sulla porta</b> (pop con overshoot)</li>
+    <li><b>3,6–4,0s</b> — pausa: casa completa, respira</li>
+    <li><b>4,0–4,8s</b> — <b>la casa svanisce in dissolvenza</b>, con una leggera salita</li>
+    <li><b>4,0–5,1s</b> — <b>“Metria” scorre verso destra</b>; <b>a metà dello scorrimento</b> inizia a essere scritta a mano — il tratto si traccia fino a completarsi; <b>la stella viaggia verso il nome facendo un giro completo di 360° su sé stessa</b></li>
+    <li><b>5,1–5,6s</b> — lockup finale <b>“Metria✦”</b> tenuto a lungo</li>
+    <li><b>5,6–6,3s</b> — dissolvenza finale (nel loop) → in produzione: play singolo, si chiude a <b>~5,6s</b></li>
+  </ul>
+</div>
+
+<p class="foot">Se ti piace: <span class="mono">"ok loading"</span> → la integro come preloader nella landing (one-shot, ~5,6s) e poi faccio la passata completa di promozione dell'identità S3 (marchio ufficiale, animazioni, statiche, lockup, app icon, favicon, brand book + design system).</p>
+
+<script>
+  function replay(id){ const box=document.getElementById(id); box.classList.remove('frozen'); const html=box.innerHTML; box.innerHTML=''; void box.offsetWidth; box.innerHTML=html; }
+  function toggleOnce(btn){
+    const box=document.getElementById('big');
+    box.classList.remove('frozen');
+    replay('big');
+    if(btn.dataset.on==='1'){ btn.dataset.on='0'; btn.textContent='◻ una volta sola (come in landing)'; return; }
+    btn.dataset.on='1'; btn.textContent='↻ riparti (modalità loop)';
+    setTimeout(()=>{ const b=document.getElementById('big'); if(b) b.classList.add('frozen'); }, 3700);
+  }
+</script>
+</body>
+</html>
